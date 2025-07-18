@@ -1,46 +1,120 @@
-# Getting Started with Create React App
+# TMDB Movie Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application for searching and exploring movies using the TMDB (The Movie Database) API. This project showcases a fully functional movie search interface with advanced features like autocomplete suggestions, filters, pagination, and more.
+
+![TMDB Movie Search App](https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png)
+
+## Features
+
+- **Movie Search**: Search for movies by title with real-time results
+- **Autocomplete Suggestions**: Get instant movie suggestions as you type
+- **Advanced Filters**: Filter movies by language, year, region, page, and adult content
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Loading States**: Visual feedback with progress bar, skeleton loading, and spinner
+- **Error Handling**: Graceful error handling with user-friendly messages
+- **Movie Details**: View detailed information about each movie
+- **Search History**: Track and revisit your previous searches
+- **Pagination**: Navigate through multiple pages of search results
+
+## Technical Implementation
+
+- Built with **React** and **TypeScript**
+- State management with **React Context API**
+- Styling with **Styled Components**
+- API integration with **Axios**
+- Error boundaries for graceful error handling
+- Unit testing with **Jest** and **React Testing Library**
+
+## Project Structure
+
+```
+src/
+├── api/
+│   └── tmdbApi.ts        # API service for TMDB endpoints
+├── components/
+│   ├── Filters/          # Advanced filters components
+│   ├── Header/           # App header components
+│   ├── MovieCard/        # Movie card and detail components
+│   ├── Search/           # Search input and history components
+│   └── UI/               # Shared UI components (Results, ErrorBoundary)
+├── context/
+│   └── MovieContext.tsx  # Global state management
+├── styles/
+│   ├── GlobalStyles.ts   # Global styles
+│   └── StyledComponents.ts # Reusable styled components
+├── types/
+│   └── index.ts          # TypeScript type definitions
+├── App.tsx               # Main application component
+└── index.tsx             # Application entry point
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/tmdb-movie-app.git
+   cd tmdb-movie-app
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory with your TMDB API key:
+   ```
+   REACT_APP_TMDB_API_KEY=your_api_key_here
+   REACT_APP_TMDB_ACCESS_TOKEN=your_access_token_here
+   ```
+
+4. Start the development server:
+   ```
+   npm start
+   ```
+
+### Running Tests
+
+```
+npm test
+```
+
+## Architecture Decisions
+
+- **Styled Components**: Used for component-scoped styling and theme consistency
+- **Context API**: Implemented for global state management instead of Redux for simplicity
+- **TypeScript**: Added for type safety and better developer experience
+- **Modular Components**: Built with reusability and maintainability in mind
+- **Error Boundaries**: Implemented to prevent the entire app from crashing
+- **Debounced Search**: Optimized API calls during user typing
+- **Local Storage**: Used for persisting search history
+
+## Future Enhancements
+
+- Add user authentication for personalized experiences
+- Implement watchlist functionality
+- Add more detailed movie information and reviews
+- Implement movie recommendations
+- Add dark/light theme toggle
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start`: Runs the app in development mode
+- `npm test`: Launches the test runner
+- `npm run build`: Builds the app for production
+- `npm run eject`: Ejects from Create React App
 
-### `npm start`
+## License
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Acknowledgments
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [TMDB API](https://www.themoviedb.org/documentation/api) for providing the movie data
+- [Create React App](https://github.com/facebook/create-react-app) for the project setup
