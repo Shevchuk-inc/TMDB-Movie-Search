@@ -495,7 +495,7 @@ export const ModalOverlay = styled.div<{ visible: boolean }>`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   display: ${props => props.visible ? 'flex' : 'none'};
   justify-content: center;
   align-items: center;
@@ -512,7 +512,7 @@ export const ModalContent = styled.div`
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin: auto;
   transform: translateY(0);
   animation: modalFadeIn 0.3s ease;

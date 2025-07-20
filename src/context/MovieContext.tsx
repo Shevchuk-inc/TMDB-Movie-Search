@@ -93,12 +93,9 @@ export const MovieProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   useEffect(() => {
     if (searchQuery && currentPage > 0) {
-      const updatedFilters = { ...filters, page: currentPage };
-      setFilters(updatedFilters);
-
-      if (searchQuery.trim()) {
-        searchMovies();
-      }
+      searchMovies().catch(error => {
+        console.error('Error searching movies:', error);
+      });
     }
   }, [currentPage]);
 
@@ -120,16 +117,17 @@ export const MovieProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     setError(null);
 
     try {
+      const searchFilters = { ...filters, page: currentPage };
       const response: MovieSearchResponse = await tmdbApi.searchMovies({
         query: searchTerm,
-        ...filters,
+        ...searchFilters,
       });
 
       setMovies(response.results);
       setTotalResults(response.total_results);
       setTotalPages(response.total_pages);
 
-      if (filters.page === 1 && searchTerm) {
+      if (currentPage === 1 && searchTerm) {
         addToSearchHistory(searchTerm);
       }
     } catch (err) {

@@ -24,7 +24,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, genres, onClick }) => {
 
   const rating = movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A';
 
-  const movieGenres = movie.genre_ids
+  const movieGenres = (movie.genre_ids || [])
     .map(id => genres.find(genre => genre.id === id))
     .filter(genre => genre !== undefined)
     .map(genre => genre as Genre);
